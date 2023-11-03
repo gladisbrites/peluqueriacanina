@@ -1,6 +1,8 @@
 com\mycompany\peluqueriacanina\igu\CargaDatos.class
+com\mycompany\peluqueriacanina\igu\CargaDatos$2.class
+com\mycompany\peluqueriacanina\logica\Mascota.class
 com\mycompany\peluqueriacanina\igu\Principal$1.class
 com\mycompany\peluqueriacanina\PeluqueriaCanina.class
 com\mycompany\peluqueriacanina\igu\CargaDatos$1.class
-com\mycompany\peluqueriacanina\igu\CargaDatos$2.class
 com\mycompany\peluqueriacanina\igu\Principal.class
+com\mycompany\peluqueriacanina\logica\Duenio.class
