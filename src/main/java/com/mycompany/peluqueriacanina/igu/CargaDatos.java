@@ -1,7 +1,12 @@
 
 package com.mycompany.peluqueriacanina.igu;
 
+import com.mycompany.peluqueriacanina.logica.ControladoraLogica;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 public class CargaDatos extends javax.swing.JFrame {
+    ControladoraLogica controladoraLogica =new ControladoraLogica();
 
     public CargaDatos() {
         initComponents();
@@ -169,6 +174,11 @@ public class CargaDatos extends javax.swing.JFrame {
         btGuardar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disquete.png"))); // NOI18N
         btGuardar.setText("Guardar");
+        btGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -252,6 +262,25 @@ public class CargaDatos extends javax.swing.JFrame {
         cmbAlergico.setSelectedIndex(0);
         cmbAtEspecial.setSelectedIndex(0);
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
+        String nombreMascota =txtNombre.getText();
+        String raza=txtRaza.getText();
+        String color=txtColor.getText();
+        String observaciones=txtAreaObservaciones.getText();
+        String alergico= (String) cmbAlergico.getSelectedItem();
+        String atEspecial= (String) cmbAtEspecial.getSelectedItem();
+        
+        String nomDuenio=txtNomDuenio.getText();
+        String celDuenio =txtCelDuenio.getText();
+        
+        controladoraLogica.guardar(nombreMascota,raza,color,observaciones,alergico,atEspecial,nomDuenio,celDuenio);
+        JOptionPane optionPane =new JOptionPane("Se guardó correctamente");
+        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        JDialog dialog = optionPane.createDialog("guardado exitoso");
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_btGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
