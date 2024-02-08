@@ -36,6 +36,11 @@ public class Principal extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jButton2.setText("Ver Datos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jButton3.setText("Salir");
@@ -114,6 +119,13 @@ public class Principal extends javax.swing.JFrame {
        pantalla.setVisible(true);
        pantalla.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCargaDatosActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+                                                      
+       VerDatos pantalla =new VerDatos();
+       pantalla.setVisible(true);
+       pantalla.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
   
 
