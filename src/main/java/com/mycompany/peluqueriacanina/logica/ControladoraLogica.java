@@ -2,7 +2,10 @@
 package com.mycompany.peluqueriacanina.logica;
 
 import com.mycompany.peluqueriacanina.persistencia.ControladoraPersistencia;
+import com.mycompany.peluqueriacanina.persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ControladoraLogica {
     ControladoraPersistencia controladoraPersis =new ControladoraPersistencia();
@@ -30,6 +33,12 @@ public class ControladoraLogica {
 
     public List<Mascota> traeMascota() {
         return controladoraPersis.traerMascotas();
+    }
+
+    public void borrarMascota(int num_cliente) {
+        
+            controladoraPersis.borrarRegistro(num_cliente);
+        
     }
     
 }

@@ -7,6 +7,8 @@ package com.mycompany.peluqueriacanina.igu;
 import com.mycompany.peluqueriacanina.logica.ControladoraLogica;
 import com.mycompany.peluqueriacanina.logica.Mascota;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -154,7 +156,24 @@ public class VerDatos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        if(tablaMascotas.getRowCount()>0){
+            if(tablaMascotas.getSelectedRow()!=-1){
+                int num_cliente =Integer.parseInt(String.valueOf(tablaMascotas.getValueAt(tablaMascotas.getSelectedRow(),0)));
+                       controladoraLogica.borrarMascota(num_cliente);
+                       
+               mostrarMensaje("mascota elimanda correctamete","Info","mascota eliminada");
+               cargarDatos();
+            }  
+            else {
+            mostrarMensaje("no seleccionó ninguna mascota","Error","debe seleccionar mascota");
+            }
+        
+        }
+        
+            else{
+                    mostrarMensaje("no hay registro para eliminar","Error","no hay registros");
+                    }
+                    
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -164,7 +183,21 @@ public class VerDatos extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        cargarDatos();    }//GEN-LAST:event_formWindowOpened
 
+    public void mostrarMensaje(String mensaje, String tipo, String titulo){
+                
+        JOptionPane optionPane =new JOptionPane(mensaje);
+        if(tipo.equals("Info")){
+        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);}
+        else if(tipo.equals("Error")){
+                    optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+
     
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
