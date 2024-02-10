@@ -100,6 +100,10 @@ public class Mascota implements Serializable {
     public void setDuenio(Duenio duenio) {
         this.duenio = duenio;
     }
+
+    Object getUnDuenio() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     

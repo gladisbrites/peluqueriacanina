@@ -40,5 +40,39 @@ public class ControladoraLogica {
             controladoraPersis.borrarRegistro(num_cliente);
         
     }
+
+    public Mascota traerUnaMascota(int num_cliente) {
+       return controladoraPersis.traerUnaMascota(num_cliente);
+    }
+
+    public void modificarMascota(Mascota masco, String nombreMascota, String raza,
+            String color, String observaciones, String alergico, String atEspecial, 
+            String nomDuenio, String celDuenio) {
+        masco.setNombre(nombreMascota);
+        masco.setRaza(raza);
+        masco.setColor(color);
+        masco.setObservaciones(observaciones);
+        masco.setAlergico(alergico);
+        masco.setAtencion_especial(atEspecial);
+        
+        controladoraPersis.modificarMascota(masco);
+        
+        Duenio duenio = this.buscarDuenio(masco.getDuenio().getId_duenio());
+        duenio.setNombre(nomDuenio);
+        duenio.setCelular(celDuenio);
+        this.modificarDuenio(duenio);
+    }
+
+    private Duenio buscarDuenio(int id_duenio) {
+       return controladoraPersis.traerDuenio(id_duenio);
+    }
+
+    private void modificarDuenio(Duenio duenio) {
+        controladoraPersis.modificarDuenio(duenio);
+    }
+
+    
+
+    
     
 }
