@@ -238,7 +238,8 @@ public class VerDatos extends javax.swing.JFrame {
         
         //establecemos nombres de las columnas
         
-        String titulos[]={"Num","Nombre", "Color","Raza","Alergico","At. Especial","Dueño", "Celular" };
+        String titulos[]={"Num","Nombre", "Color","Raza","Alergico","At. Especial",
+            "Observaciones","Dueño", "Celular" };
         tabla.setColumnIdentifiers(titulos);
         
         //carga datos de la base de datos
@@ -246,8 +247,9 @@ public class VerDatos extends javax.swing.JFrame {
         if (listaMascota!=null){        
             for(Mascota masco:listaMascota){
                 Object[] objeto ={
-                    masco.getNum_cliente(),masco.getNombre(),masco.getColor(),masco.getRaza(),masco.getAlergico(),
-                    masco.getAtencion_especial(),masco.getDuenio().getNombre(),masco.getDuenio().getCelular()
+                    masco.getNum_cliente(),masco.getNombre(),masco.getColor(),masco.getRaza(),
+                    masco.getAlergico(),
+                    masco.getAtencion_especial(),masco.getObservaciones(),masco.getDuenio().getNombre(),masco.getDuenio().getCelular()
                     };
                tabla.addRow(objeto);
             }

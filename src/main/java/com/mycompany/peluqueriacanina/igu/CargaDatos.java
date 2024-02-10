@@ -275,6 +275,7 @@ public class CargaDatos extends javax.swing.JFrame {
         String celDuenio =txtCelDuenio.getText();
         
         controladoraLogica.guardar(nombreMascota,raza,color,observaciones,alergico,atEspecial,nomDuenio,celDuenio);
+        this.dispose();
         JOptionPane optionPane =new JOptionPane("Se guardó correctamente");
         optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
         JDialog dialog = optionPane.createDialog("guardado exitoso");
